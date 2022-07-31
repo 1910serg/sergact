@@ -11,6 +11,8 @@ export const Sergact = {
             element.props.children = children;
         };
 
+        console.log('Sergact.createElement записал объект:');
+        console.log('Sergact.createElement результат записи:', element);
         // возвращаем объект
         return element; 
     },
@@ -20,13 +22,15 @@ export const Sergact = {
             this.props = props;
         };
 
-        // в этой части мы добавляем к объекту прототип конструктора Constructor (в котором содержится единственное свойство - constructor) метод рендер, который возвращает желаемую строку
+        // тут мы создаём в прототипе конструктора метод рендер нашего передаваемого (spec) объекта
         Constructor.prototype.render = spec.render;
 
+        console.log('Sergact.createClass вернулся конструктор');
         return Constructor;
     },
-    
+
     render(element, container) {
+        console.log(`Sergact.render( element:`, element, 'container:', container);
         const componentInstance = new SergactCompositeComponentWrapper(element);
 
         return componentInstance.mountComponent(container);

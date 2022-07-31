@@ -6,6 +6,7 @@ export default class SergactDOMComponent {
     mountComponent(container) {
         // создаем константы элемента, содержимого внутри этого элемента и узел, который присвоим в дальнейшем элементу
         const domElement = document.createElement(this._currentElement.type);
+        console.log('SergactDOMComponent.mountComponent this._currentElement.type:', this._currentElement.type);
         const text = this._currentElement.props.children;
         const textNode = document.createTextNode(text);
         // присваиваем элементу наш узел
