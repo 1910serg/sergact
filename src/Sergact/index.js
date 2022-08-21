@@ -10,9 +10,8 @@ export const Sergact = {
         if (children) {
             element.props.children = children;
         };
-
-        console.log('Sergact.createElement записал объект:');
-        console.log('Sergact.createElement результат записи:', element);
+        
+        console.log('Sergact.createElement результат записи объекта:', element);
         // возвращаем объект
         return element; 
     },
@@ -30,7 +29,7 @@ export const Sergact = {
     },
 
     render(element, container) {
-        console.log(`Sergact.render( element:`, element, 'container:', container);
+        console.log(`Sergact.render element:`, element, 'container:', container);
         const componentInstance = new SergactCompositeComponentWrapper(element);
 
         return componentInstance.mountComponent(container);
